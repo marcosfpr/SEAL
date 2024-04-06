@@ -95,12 +95,12 @@ SEAL_C_FUNC Plaintext_Create3(uint64_t capacity, uint64_t coeffCount, void *memo
     }
 }
 
-SEAL_C_FUNC Plaintext_Create4(char *hex_poly, void *memoryPoolHandle, void **plaintext)
+SEAL_C_FUNC Plaintext_Create4(uint8_t *hex_poly, void *memoryPoolHandle, void **plaintext)
 {
     IfNullRet(plaintext, E_POINTER);
     IfNullRet(hex_poly, E_POINTER);
     unique_ptr<MemoryPoolHandle> handle = MemHandleFromVoid(memoryPoolHandle);
-    string hex_poly_str(hex_poly);
+    string hex_poly_str(reinterpret_cast<char *>(hex_poly));
 
     try
     {
