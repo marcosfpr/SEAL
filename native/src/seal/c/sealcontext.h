@@ -38,3 +38,5 @@ SEAL_C_FUNC SEALContext_UsingKeyswitching(void *thisptr, bool *using_keyswitchin
 SEAL_C_FUNC SEALContext_ParameterErrorName(void *thisptr, char *outstr, uint64_t *length);
 
 SEAL_C_FUNC SEALContext_ParameterErrorMessage(void *thisptr, char *outstr, uint64_t *length);
+
+SEAL_C_FUNC SEALContext_GetSecurityLevel(void *thisptr, int32_t *sec_level);

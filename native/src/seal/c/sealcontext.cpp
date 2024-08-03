@@ -170,3 +170,13 @@ SEAL_C_FUNC SEALContext_ParameterErrorMessage(void *thisptr, char *outstr, uint6
     }
     return S_OK;
 }
+
+SEAL_C_FUNC SEALContext_GetSecurityLevel(void *thisptr, int32_t *sec_level)
+{
+    SEALContext *context = FromVoid<SEALContext>(thisptr);
+    IfNullRet(context, E_POINTER);
+    IfNullRet(sec_level, E_POINTER);
+
+    *sec_level = static_cast<int32_t>(context->sec_level());
+    return S_OK;
+}

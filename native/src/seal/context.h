@@ -632,6 +632,14 @@ namespace seal
             return using_keyswitching_;
         }
 
+        /**
+         Returns the sec_level_type of the encryption parameters.
+         */
+        SEAL_NODISCARD inline sec_level_type sec_level() const noexcept
+        {
+            return sec_level_;
+        }
+
     private:
         /**
         Creates an instance of SEALContext, and performs several pre-computations
